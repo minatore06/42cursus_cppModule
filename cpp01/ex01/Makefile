@@ -2,7 +2,7 @@ CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=zombie
 
-FILES=Zombie.cpp main.cpp
+FILES=Zombie.cpp main.cpp zombieHorde.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp

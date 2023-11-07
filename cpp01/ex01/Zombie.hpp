@@ -6,7 +6,7 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:00:45 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/10/31 15:28:43 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:00:42 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Zombie
         Zombie( void );
         Zombie( std::string name );
         ~Zombie( void );
+        void setName( std::string name );
         void announce( void );
 };
 
