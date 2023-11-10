@@ -1,8 +1,8 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=fileReplacer
+NAME=harl
 
-FILES=main.cpp FileReplacer.cpp
+FILES=main.cpp Harl.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp
