@@ -6,7 +6,7 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:48:02 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/10/30 13:05:17 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:36:19 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ PhoneBook::PhoneBook() {
 
 PhoneBook::~PhoneBook() {
     std::cout << "Distruttore" << std::endl;
-/*     for (int i=0; i < 8; i++)
-        delete &this->contacts[i]; */
 }
 
 std::string PhoneBook::truncate(std::string str, size_t w) const {
     std::string tmp;
 
     if (str.size() > w) {
+        str.insert(w - 1, ".");
         tmp = str.substr(0, w);
-        tmp.insert(w - 1, ".");
         return (tmp);
     }
     return (str);

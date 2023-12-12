@@ -6,7 +6,7 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:03:22 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/11/07 13:00:10 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:05:24 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void Zombie::setName( std::string name )
 
 void Zombie::announce( void )
 {
-    std::cout << name << " BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

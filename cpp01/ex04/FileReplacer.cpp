@@ -6,7 +6,7 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:50:44 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/11/10 12:56:31 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:17:08 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int FileReplacer::replace(std::string s1, std::string s2)
 	while (std::getline(ifs, line))
 	{
 		i = 0;
+		if (!ifs.eof() && !ifs.fail())
+			line.append("\n");
 		pos = line.find(s1, i);
 		while (pos != std::string::npos)
 		{
@@ -61,7 +63,7 @@ int FileReplacer::replace(std::string s1, std::string s2)
 			std::cout << "Error: could not create file" << std::endl;
 			return (-1);
 		}
-		ofs << str << std::endl;
+		ofs << str;
 	} else
 	{
 		std::cout << "Error: file is empty" << std::endl;
