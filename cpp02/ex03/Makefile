@@ -1,8 +1,8 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=fixed
+NAME=bsp
 
-FILES=main.cpp Fixed.cpp
+FILES=main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp
