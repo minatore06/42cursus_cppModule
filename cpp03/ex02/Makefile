@@ -1,6 +1,6 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=bsp
+NAME=FragTrap
 
 FILES=main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJECTS=$(FILES:.cpp=.o)

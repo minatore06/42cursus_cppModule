@@ -6,7 +6,7 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:17:26 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/12/18 17:37:34 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:53:57 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	ScavTrap(const ScavTrap& src);
 	~ScavTrap();
 	ScavTrap& operator=(const ScavTrap& src);
-	void ScavTrap::attack(std::string const& target);
+	void attack(std::string const& target);
 	void guardGate();
 };
 

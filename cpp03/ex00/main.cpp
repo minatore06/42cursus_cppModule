@@ -6,13 +6,13 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:04:36 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/12/18 16:06:24 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:41:33 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-void main()
+int main( void )
 {
 	ClapTrap clap("Clap");
 	ClapTrap clap2(clap);
@@ -21,4 +21,5 @@ void main()
 	clap.attack("target");
 	clap.takeDamage(5);
 	clap.beRepaired(5);
+	return (0);
 }

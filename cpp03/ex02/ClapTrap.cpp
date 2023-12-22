@@ -6,7 +6,7 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:42:39 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/12/18 17:07:42 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/22 12:11:54 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 
 ClapTrap::ClapTrap(const ClapTrap& src)
 {
-	std::cout << "ClapTrap " << this->name << ": copy constructor called" << std::endl;
 	*this = src;
+	std::cout << "ClapTrap " << this->name << ": copy constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -78,6 +78,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		this->energyPoints--;
 		std::cout << "ClapTrap " << this->name << " is repaired for " << amount << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->name << " now has " << this->energyPoints << " energy points left!" << std::endl;
 		this->hitPoints += amount;
 	} else if (this->hitPoints < 1)
 		std::cout << "ClapTrap " << this->name << " is dead!" << std::endl;

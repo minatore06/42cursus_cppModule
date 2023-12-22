@@ -6,20 +6,23 @@
 /*   By: scaiazzo <scaiazzo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:04:36 by scaiazzo          #+#    #+#             */
-/*   Updated: 2023/12/18 17:14:49 by scaiazzo         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:56:21 by scaiazzo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-void main()
+int main( void )
 {
-	FragTrap Frag("Frag");
-	FragTrap Frag2(Frag);
-	FragTrap Frag3;
-	Frag3 = Frag2;
-	Frag.attack("target");
-	Frag.takeDamage(5);
-	Frag.beRepaired(5);
-	Frag.highFivesGuys();
+	DiamondTrap diamond("diamond");
+	DiamondTrap diamond2(diamond);
+	DiamondTrap diamond3;
+	diamond3 = diamond2;
+	diamond.attack("target");
+	diamond.takeDamage(5);
+	diamond.beRepaired(5);
+	diamond.guardGate();
+	diamond.highFivesGuys();
+	diamond.whoAmI();
+	return (0);
 }
