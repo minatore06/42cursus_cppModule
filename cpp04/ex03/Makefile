@@ -2,7 +2,7 @@ CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=bsp
 
-FILES=main.cpp animal.cpp dog.cpp cat.cpp wrongAnimal.cpp wrongCat.cpp
+FILES=main.cpp aMateria.cpp character.cpp cure.cpp ice.cpp materiaSource.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp
