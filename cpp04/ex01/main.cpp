@@ -10,7 +10,7 @@ int main()
 	
 	for (int i = 0; i < 6; i++)
 	{
-		delete &animals[i];
+		delete animals[i];
 	}
 	
 	return 0;

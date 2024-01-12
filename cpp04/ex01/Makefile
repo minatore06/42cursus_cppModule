@@ -1,6 +1,6 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=bsp
+NAME=animals
 
 FILES=main.cpp animal.cpp dog.cpp cat.cpp wrongAnimal.cpp wrongCat.cpp brain.cpp
 OBJECTS=$(FILES:.cpp=.o)

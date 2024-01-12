@@ -23,5 +23,10 @@ int main()
 	std::cout << "Expected to make the wrong sound" << std::endl;
 	wrongI->makeSound();
 	wrongMeta->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+	delete wrongMeta;
+	delete wrongI;
 	return 0;
 }
