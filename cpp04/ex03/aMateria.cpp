@@ -22,3 +22,8 @@ AMateria &AMateria::operator=(const AMateria &aMateria)
     this->type = aMateria.type;
     return (*this);
 }
+
+void AMateria::use(ICharacter &target)
+{
+    std::cout << "Used againts " << target.getName() << std::endl;
+}
