@@ -1,6 +1,6 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=bsp
+NAME=materials
 
 FILES=main.cpp aMateria.cpp character.cpp cure.cpp ice.cpp materiaSource.cpp
 OBJECTS=$(FILES:.cpp=.o)

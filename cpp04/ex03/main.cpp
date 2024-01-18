@@ -17,6 +17,12 @@ int main()
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
+    me->equip(tmp);
+    me->equip(tmp);
+    me->equip(tmp);
+    me->unequip(3);
+    me->equip(tmp);
+    std::cout << "end" << std::endl;
     delete bob;
     delete me;
     delete src;

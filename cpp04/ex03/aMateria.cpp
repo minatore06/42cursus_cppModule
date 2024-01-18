@@ -27,3 +27,8 @@ void AMateria::use(ICharacter &target)
 {
     std::cout << "Used againts " << target.getName() << std::endl;
 }
+
+std::string const &AMateria::getType() const
+{
+    return (this->type);
+}
