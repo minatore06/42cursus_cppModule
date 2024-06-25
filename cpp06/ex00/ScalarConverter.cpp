@@ -63,3 +63,22 @@ void ScalarConverter::convert(std::string str)
 	}
 
 }
+
+ScalarConverter::ScalarConverter()
+{
+}
+
+ScalarConverter::~ScalarConverter()
+{
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &src)
+{
+	*this = src;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src)
+{
+	(void)src;
+	return (*this);
+}
