@@ -2,7 +2,7 @@ CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=animals
 
-FILES=main.cpp aMateria.cpp character.cpp cure.cpp ice.cpp materiaSource.cpp
+FILES=main.cpp animal.cpp dog.cpp cat.cpp wrongAnimal.cpp wrongCat.cpp brain.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp
