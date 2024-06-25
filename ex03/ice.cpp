@@ -4,7 +4,7 @@ Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice(const Ice &ice) : AMateria("ice")
+Ice::Ice(const Ice &ice)
 {
     *this = ice;
 }

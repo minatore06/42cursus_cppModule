@@ -17,14 +17,10 @@ int main()
 	std::cout << "Expected to make the right sound" << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	delete i;
-	delete j;
 
 	std::cout << wrongI->getType() << " " << std::endl;
 	std::cout << "Expected to make the wrong sound" << std::endl;
 	wrongI->makeSound();
 	wrongMeta->makeSound();
-	delete wrongI;
-	delete wrongMeta;
 	return 0;
 }

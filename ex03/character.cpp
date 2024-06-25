@@ -27,9 +27,8 @@ Character::~Character()
 {
     std::cout << "Character destructor called" << std::endl;
     for (int i = 0; i < 4; i++) {
-        if (this->inventory[i]) {
+        if (this->inventory[i])
             delete this->inventory[i];
-        }
     }
     if (this->floor)
         delete this->floor;
@@ -40,8 +39,7 @@ Character &Character::operator=(const Character &character)
     this->name = character.name;
     for (int i = 0; i < 4; i++) 
     {
-        if (this->inventory[i])
-            delete this->inventory[i];
+        delete this->inventory[i];
         this->inventory[i] = character.inventory[i]->clone();
     }
     return (*this);
