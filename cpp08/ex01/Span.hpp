@@ -22,8 +22,7 @@ public:
 	template <typename T>
 	void fill(T begin, T end)
 	{
-		while (begin != end)
-			addNumber(*begin++);
+		for_each(begin, end, addNumber);
 		if (begin != end)
 			throw std::exception();
 	}
