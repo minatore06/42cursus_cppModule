@@ -2,7 +2,7 @@ CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=identify
 
-FILES=main.cpp
+FILES=main.cpp Identify.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp

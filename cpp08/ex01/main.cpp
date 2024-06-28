@@ -21,13 +21,13 @@ int main()
 	try
 	{
 		sp2.fill(v.begin(), v.end());
-		std::cout << sp2.shortestSpan() << std::endl;
-		std::cout << sp2.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+	std::cout << sp2.shortestSpan() << std::endl;
+	std::cout << sp2.longestSpan() << std::endl;
 	
 	return 0;
 }

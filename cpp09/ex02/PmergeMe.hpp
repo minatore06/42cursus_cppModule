@@ -87,7 +87,7 @@ class PmergeMe {
 		void mergeInsertionSort(T &arr, int l, int r, int size = -1) {
 			if (size == -1)
 				size = arr.size();
-			if (size <= 5) {
+			if (size <= 2) {
 				insertionSort(arr, l, r);
 				return;
 			}

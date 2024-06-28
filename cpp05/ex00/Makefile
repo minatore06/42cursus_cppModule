@@ -1,6 +1,6 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=animals
+NAME=bureaucrat
 
 FILES=main.cpp Bureaucrat.cpp
 OBJECTS=$(FILES:.cpp=.o)

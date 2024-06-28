@@ -3,13 +3,13 @@
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), target("target") {
     srand((unsigned)time(0)); }
 
-RobotomyRequestForm::RobotomyRequestForm(const string &name) : AForm("RobotomyRequestForm", 72, 45), target(target) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string &name) : AForm("RobotomyRequestForm", 72, 45), target(name) {
     srand((unsigned)time(0)); 
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &form) {
     srand((unsigned)time(0)); 
-    this = form;
+    *this = form;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
@@ -20,11 +20,11 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &f
     return *this;
 }
 
-void AFrom::execute(Bureaucrat const &executor) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-    if (bureaucrat.getGrade() > this.getGradeToExecute())
+    if (executor.getGrade() > this->getGradeToExecute())
         throw GradeTooLowException();
-    if (!this.getSigned())
+    if (!this->getSigned())
         throw NotSignedException();
     std::cout << "Ttttttttrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" << std::endl;
     int i;

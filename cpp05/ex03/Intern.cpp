@@ -27,12 +27,12 @@ AForm* Intern::makeShrubberyCreationForm(std::string target) {
 
 AForm* Intern::makeForm(std::string formName, std::string target) {
     std::string names[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
-    void (Intern::*forms[3])(std::string) = {&Intern::makePresidentialPardonForm, &Intern::makeRobotomyRequestForm, &Intern::makeShrubberyCreationForm}; 
+    AForm *(Intern::*forms[3])(std::string) = {&Intern::makePresidentialPardonForm, &Intern::makeRobotomyRequestForm, &Intern::makeShrubberyCreationForm}; 
 
     for (int i = 0; i < 3; i++) {
-        if (forms[i] == formName) {
+        if (names[i] == formName) {
             std::cout << "Intern creates " << formName << std::endl; 
-            return (forms[i](target));
+            return ((this->*forms[i])(target));
         }
     }
     std::cout << "Intern could not create the form " << formName << " because it is not a valid form" << std::endl;

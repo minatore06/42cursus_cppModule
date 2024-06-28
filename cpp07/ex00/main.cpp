@@ -1,10 +1,32 @@
 #include "whatever.hpp"
 #include <iostream>
 
+class test
+{
+private:
+public:
+	int x;
+	test(int x);
+	~test();
+};
+
+test::test(int x) : x(x)
+{
+}
+
+test::~test()
+{
+}
+
+
 int main( void ) {
 int a = 2;
 int b = 3;
+test t1(1);
+test t2(2);
+::swap( t1, t2 );
 ::swap( a, b );
+std::cout << "t1 = " << &t1 << ", t2 = " << &t2 << std::endl;
 std::cout << "a = " << a << ", b = " << b << std::endl;
 std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;

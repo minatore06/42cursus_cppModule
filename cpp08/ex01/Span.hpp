@@ -3,6 +3,7 @@
 
 #include <exception>
 #include <stdlib.h>
+#include <algorithm>
 
 class Span
 {
@@ -22,7 +23,8 @@ public:
 	template <typename T>
 	void fill(T begin, T end)
 	{
-		for_each(begin, end, addNumber);
+		for (; begin != end; begin++)
+			addNumber(*begin);
 		if (begin != end)
 			throw std::exception();
 	}

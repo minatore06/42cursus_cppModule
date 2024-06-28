@@ -11,9 +11,9 @@
 class ScalarConverter
 {
 private:
-public:
 	ScalarConverter();
 	virtual ~ScalarConverter();
+public:
 	ScalarConverter(const ScalarConverter &obj);
 	ScalarConverter &operator=(const ScalarConverter &obj);
 	
