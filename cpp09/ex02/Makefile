@@ -1,8 +1,8 @@
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=easyfind
+NAME=PmergeMe
 
-FILES=main.cpp
+FILES=main.cpp PmergeMe.cpp
 OBJECTS=$(FILES:.cpp=.o)
 
 %.o: %.cpp

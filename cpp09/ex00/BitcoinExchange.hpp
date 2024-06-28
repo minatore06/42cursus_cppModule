@@ -5,12 +5,13 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <sstream>
 #include <exception>
 
 class BitcoinExchange {
 	private:
 		std::map<std::string, double> exchangeRate;
-		std::map<std::string, double> input;
+		std::string input;
 	public:
 		BitcoinExchange();
 		BitcoinExchange(BitcoinExchange const &other);

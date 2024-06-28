@@ -7,37 +7,21 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const &other) {
 	*this = other;
 }
 
-BitcoinExchange::BitcoinExchange(std::string inputFile) {
-	std::ifstream file(inputFile.c_str());
-	if (!file.is_open()) {
-		throw file_not_found();
-	}
+BitcoinExchange::BitcoinExchange(std::string inputFile) : input(inputFile){
 	std::string line;
-	std::getline(file, line);
-	if (line.compare("date | value") != 0) {
-		throw wrong_format();
-	}
-	while (file.good()) {
-		std::getline(file, line);
-		input[line.substr(0, line.find(' '))] = static_cast<double>(line.substr(line.rfind(' ') + 1));
-	}
-	file.close();
-
-	file.open("data.csv");
+	std::ifstream file("data.csv");
 	if (!file.is_open()) {
 		throw file_not_found();
 	}
-	line = "";
 	while (file.good()) {
 		std::getline(file, line);
-		exchangeRate[line.substr(0, line.find(','))] = std::stod(line.substr(line.find(',') + 1));
+		std::istringstream iss(line.substr(line.find(',') + 1));
+		iss >> exchangeRate[line.substr(0, line.find(','))];
 	}
 	file.close();
 }
 
 BitcoinExchange::~BitcoinExchange() {
-	delete &exchangeRate;
-	delete &input;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &other) {
@@ -47,31 +31,55 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &other) {
 }
 
 void BitcoinExchange::getValues() {
-	double rate;
-	std::map<std::string, double>::iterator it;
-	std::map<std::string, double>::iterator it2;
-	for (it = input.begin(); it != input.end(); it++) {
-		if (it->second < 0) {
+	std::string line;
+	std::ifstream file(input.c_str());
+	if (!file.is_open()) {
+		throw file_not_found();
+	}
+
+	std::getline(file, line);
+	if (line.compare("date | value") != 0) {
+		throw wrong_format();
+	}
+
+	std::string key;
+	double value;
+	while (std::getline(file, line)) {
+		if (line.rfind(' ') == std::string::npos) {
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+	
+		key = line.substr(0, line.find(' '));
+		std::istringstream iss(line.substr(line.rfind(' ') + 1));
+		iss >> value;
+
+		if (value < 0) {
 			std::cout << "Error: not a positive number." << std::endl;
 			continue;
 		}
-		if (it->second > 1000) {
+		if (value > 1000) {
 			std::cout << "Error: too large a number." << std::endl;
 			continue;
 		}
-		if (!strptime(it->first.c_str(), "%Y-%m-%d", NULL) == false) {
+		struct tm timeDate;
+		if (!strptime(key.c_str(), "%Y-%m-%d", &timeDate)) {
 			std::cout << "Error: invalid date." << std::endl;
 			continue;
 		}
-		if (exchangeRate[it->first])
-			rate = it->second * exchangeRate[it->first];
+	
+		double rate;
+		std::map<std::string, double>::iterator it;
+		if (exchangeRate[key])
+			rate = value * exchangeRate[key];
 		else {
-			it2 = exchangeRate.begin();
-			while (it->first.compare(it2->first) > 0)
-				it2++;
-			it2--;
-			rate = it->second * it2->second;
+			it = exchangeRate.begin();
+			while (key.compare(it->first) > 0)
+				it++;
+			it--;
+			rate = value * it->second;
 		}
-		std::cout << it->first << " => " << it->second << " = " << it->second * exchangeRate[it->first] << std::endl;
+		std::cout << key << " => " << value << " = " << rate << std::endl;
 	}
+	file.close();
 }

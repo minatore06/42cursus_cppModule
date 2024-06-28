@@ -9,7 +9,7 @@ int main(int ac, char **av) {
 		BitcoinExchange exchange(av[1]);
 		exchange.getValues();
 	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 		return 1;
 	}
 	return 0;
