@@ -2,6 +2,16 @@
 
 PmergeMe::PmergeMe() {}
 
+PmergeMe::PmergeMe(char **av) {
+	unsigned int tmp;
+	for (size_t i = 0; av[i]; i++) {
+		std::istringstream iss(av[i]);
+		iss >> tmp;
+		vec.push_back(tmp);
+		deku.push_back(tmp);
+	}
+}
+
 PmergeMe::PmergeMe(const PmergeMe &other) {
 	*this = other;
 }
@@ -13,46 +23,28 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
 	return *this;
 }
 
-void PmergeMe::insertionSort(std::vector<int> &arr, int l, int r) {
-	int i, key, j;
-	for (i = l + 1; i <= r; i++) {
-		key = arr[i];
-		for (j = i - 1; (j >= l && arr[j] > key); j--)
-			arr[j + 1] = arr[j];
-		arr[j + 1] = key;
-	}
+void PmergeMe::sortVec() {
+	mergeInsertionSort(vec, 0, vec.size() - 1);
 }
 
-void PmergeMe::merge(std::vector<int> &arr, int l, int size) {
-	std::vector<int> m1(size), m2(size);
-
-	for (int i = 0; i < size; i++)
-		m1[i] = arr[l + i];
-	for (int i = 0; i < size; i++)
-		m2[i] = arr[l + size + i];
-
-	int i = 0, j = 0, k = l;
-	while (i < size && j < size) {
-		if (m1[i] <= m2[j])
-			arr[k++] = m1[i++];
-		else
-			arr[k++] = m2[j++];
-	}
-
-	while (i < size)
-		arr[k++] = m1[i++];
-	while (j < size)
-		arr[k++] = m2[j++];
+void PmergeMe::sortDeku() {
+	mergeInsertionSort(deku, 0, deku.size() - 1);
 }
 
-void PmergeMe::mergeInsertionSort(std::vector<int> &arr, int l, int r, int size) {
-	if (size == -1)
-		size = arr.size() / 2;
-	if (size <= 2) {
-		insertionSort(arr, l, r);
-		return;
+void PmergeMe::printVec() const {
+	for (size_t i = 0; i < vec.size(); i++) {
+		std::cout << vec[i];
+		if (i + 1 < vec.size())
+			std::cout << " ";
 	}
-	mergeInsertionSort(arr, l, l + size - 1, size / 2);
-	mergeInsertionSort(arr, l + size, r, size / 2);
-	merge(arr, l, size);
+	std::cout << std::endl;
+}
+
+void PmergeMe::printDeku() const {
+	for (size_t i = 0; i < deku.size(); i++) {
+		std::cout << deku[i];
+		if (i + 1 < deku.size())
+			std::cout << " ";
+	}
+	std::cout << std::endl;
 }
